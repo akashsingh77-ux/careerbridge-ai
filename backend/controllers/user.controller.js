@@ -161,10 +161,7 @@ export const login = async (req, res) => {
       });
     }
 
-    const isPasswordMatch = await bcrypt.compare(
-      password,
-      user.password
-    );
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
 
     if (!isPasswordMatch) {
       return res.status(400).json({
@@ -210,13 +207,9 @@ export const login = async (req, res) => {
       userId: user._id,
     };
 
-    const token = await jwt.sign(
-      tokenData,
-      process.env.SECRET_KEY,
-      {
-        expiresIn: "1d",
-      }
-    );
+    const token = await jwt.sign(tokenData, process.env.SECRET_KEY, {
+      expiresIn: "1d",
+    });
 
     user = {
       _id: user._id,
@@ -252,13 +245,10 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    return res
-      .status(200)
-      .cookie("token", "", { maxAge: 0 })
-      .json({
-        message: "Logged out successfully.",
-        success: true,
-      });
+    return res.status(200).cookie("token", "", { maxAge: 0 }).json({
+      message: "Logged out successfully.",
+      success: true,
+    });
   } catch (error) {
     console.log(error);
 
@@ -365,8 +355,7 @@ Rules:
       // Upload resume to Cloudinary
       const fileUri = getDataUri(file);
 
-      const cloudResponse =
-        await cloudinary.uploader.upload(fileUri.content);
+      const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 
       user.profile.resume = cloudResponse.secure_url;
       user.profile.resumeOriginalName = file.originalname;

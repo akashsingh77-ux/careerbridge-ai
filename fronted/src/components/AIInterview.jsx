@@ -79,7 +79,7 @@ const AIInterview = () => {
         const loadProgress = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:8000/api/v1/ai-interview/progress",
+                  "https://careerbridge-ai-backend.onrender.com/api/v1/ai-interview/progress",
                     {
                         withCredentials: true,
                     }
@@ -123,7 +123,7 @@ const AIInterview = () => {
     const saveProgress = async (progress) => {
         try {
             await axios.post(
-                "http://localhost:8000/api/v1/ai-interview/progress",
+                "https://careerbridge-ai-backend.onrender.com/api/v1/ai-interview/progress",
                 progress,
                 {
                     withCredentials: true,
@@ -516,7 +516,7 @@ const AIInterview = () => {
                 setError("");
 
                 const res = await axios.get(
-                    "http://localhost:8000/api/v1/ai-interview/generate",
+                   "https://careerbridge-ai-backend.onrender.com/api/v1/ai-interview/generate",
                     {
                         withCredentials: true,
                     }
@@ -560,7 +560,7 @@ const AIInterview = () => {
             setEvaluating(true);
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/ai-interview/evaluate",
+              "https://careerbridge-ai-backend.onrender.com/api/v1/ai-interview/evaluate",
                 {
                     question: questions[currentQuestion],
                     answer: answer,
@@ -609,7 +609,7 @@ const AIInterview = () => {
             setError("");
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/ai-interview/new",
+              "https://careerbridge-ai-backend.onrender.com/api/v1/ai-interview/new",
                 {},
                 {
                     withCredentials: true,
