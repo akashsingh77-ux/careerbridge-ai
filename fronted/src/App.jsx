@@ -1,0 +1,121 @@
+import Login from './components/auth/Login'
+import AIInterview from "./components/AIInterview";
+import InterviewHistory from "./components/InterviewHistory";
+import Signup from './components/auth/Signup'
+import Home from './components/Home'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Navbar from './components/shared/Navbar'
+import Jobs from './components/Jobs'
+import Browse from './components/Browse'
+import Profile from './components/Profile'
+import JobDescription from './components/JobDescription'
+import Companies from './components/admin/Companies'
+import CompanyCreate from './components/admin/CompanyCreate'
+import CompanySetup from './components/admin/CompanySetup'
+import AdminJobs from "./components/admin/AdminJobs"
+import PostJob from './components/admin/PostJob'
+import Applicants from './components/admin/Applicants'
+import ProtectedRoute from './components/admin/ProtectedRoute'
+import SavedJobs from './components/SavedJobs'
+import UserProtectedRoute from './components/auth/UserProtectedRoute'
+import AdminDashboard from "./components/admin/AdminDashboard";
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+
+  },
+  {
+    path: '/login',
+    element: <Login />
+
+  },
+  {
+    path: '/signup',
+    element: <Signup />
+
+  },
+  {
+    path: "/jobs",
+    element: <Jobs />
+  },
+  {
+    path: '/description/:id',
+    element: <JobDescription />
+  },
+  {
+    path: "/browse",
+    element: <Browse />
+  },
+  {
+    path: "/profile",
+    element: <Profile />
+  },
+  {
+    path: "/admin/dashboard",
+    element: (
+        <ProtectedRoute>
+            <AdminDashboard />
+        </ProtectedRoute>
+    )
+},
+  {
+    path: "/admin/companies",
+    element: <Companies />
+  },
+  {
+    path: "/admin/companies/create",
+    element: <ProtectedRoute><CompanyCreate /></ProtectedRoute>
+  },
+  {
+    path: "/admin/companies/:id",
+    element: <ProtectedRoute><CompanySetup /></ProtectedRoute>
+
+  },
+  {
+    path: "/admin/jobs",
+    element: <ProtectedRoute> <AdminJobs /></ProtectedRoute>
+
+
+  },
+  {
+    path: "/admin/jobs/create",
+    element: <ProtectedRoute><PostJob /></ProtectedRoute>
+
+
+  },
+    {
+    path: "/admin/jobs/:id/applicants",
+    element: <ProtectedRoute> <Applicants /></ProtectedRoute>
+  },
+  {
+    path: "/saved-jobs",
+    element: <UserProtectedRoute><SavedJobs /></UserProtectedRoute>
+  },
+    {
+    path: "/ai-interview",
+    element: (
+      <UserProtectedRoute>
+        <AIInterview />
+      </UserProtectedRoute>
+    )
+  },
+  {
+    path: "/interview-history",
+    element: (
+      <UserProtectedRoute>
+        <InterviewHistory />
+      </UserProtectedRoute>
+    )
+  }
+  
+])
+function App() {
+  return (
+    <>
+      <RouterProvider router={appRouter} />
+    </>
+  )
+}
+
+export default App
