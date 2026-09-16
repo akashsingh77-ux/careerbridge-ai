@@ -739,24 +739,45 @@ const Navbar = () => {
 
                                         {
                                             user.role === 'student' && (
-                                                <Link
-                                                    to="/profile"
-                                                    onClick={closeMenu}
-                                                    className="
-                                                        flex
-                                                        items-center
-                                                        gap-3
-                                                        rounded-lg
-                                                        px-3
-                                                        py-3
-                                                        text-slate-300
-                                                        hover:bg-slate-900
-                                                        hover:text-teal-400
-                                                    "
-                                                >
-                                                    <User2 size={19} />
-                                                    View Profile
-                                                </Link>
+                                                <>
+                                                    <Link
+                                                        to="/profile"
+                                                        onClick={closeMenu}
+                                                        className="
+                                                            flex
+                                                            items-center
+                                                            gap-3
+                                                            rounded-lg
+                                                            px-3
+                                                            py-3
+                                                            text-slate-300
+                                                            hover:bg-slate-900
+                                                            hover:text-teal-400
+                                                        "
+                                                    >
+                                                        <User2 size={19} />
+                                                        View Profile
+                                                    </Link>
+
+                                                    <Link
+                                                        to="/interview-history"
+                                                        onClick={closeMenu}
+                                                        className="
+                                                            flex
+                                                            items-center
+                                                            gap-3
+                                                            rounded-lg
+                                                            px-3
+                                                            py-3
+                                                            text-slate-300
+                                                            hover:bg-slate-900
+                                                            hover:text-teal-400
+                                                        "
+                                                    >
+                                                        <History size={19} />
+                                                        Interview History
+                                                    </Link>
+                                                </>
                                             )
                                         }
 
