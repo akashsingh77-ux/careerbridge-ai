@@ -183,8 +183,6 @@ export const login = async (req, res) => {
     // ==========================================
     // RESET CURRENT AI INTERVIEW ON LOGIN
     // ==========================================
-    // Previous completed interviews remain safely
-    // stored inside interviewHistory.
     user.profile.aiInterview = {
       selectedDomain: "",
       phase: "select-domain",
@@ -233,8 +231,9 @@ export const login = async (req, res) => {
       .status(200)
       .cookie("token", token, {
         maxAge: 1 * 24 * 60 * 60 * 1000,
-        httpsOnly: true,
-        sameSite: "strict",
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
       })
       .json({
         message: `Welcome back ${user.fullname}`,
