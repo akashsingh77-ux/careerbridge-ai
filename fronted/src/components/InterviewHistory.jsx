@@ -26,7 +26,7 @@ const InterviewHistory = () => {
         const fetchHistory = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:8000/api/v1/ai-interview/history",
+                   "https://careerbridge-ai-backend.onrender.com/api/v1/ai-interview/history",
                     {
                         withCredentials: true,
                     }
