@@ -40,34 +40,39 @@ const JobDescription = () => {
     const jobId = params.id;
     const dispatch = useDispatch();
 
-    const applyJobHandler = async () => {
-        try {
-            const res = await axios.get(
-                `${APPLICATION_API_END_POINT}/apply/${jobId}`,
-                { withCredentials: true }
-            );
+  const applyJobHandler = async () => {
+    if (!user) {
+        toast.error("Please login first to apply for this job.");
+        return;
+    }
 
-            if (res.data.success) {
-                setIsApplied(true);
+    try {
+        const res = await axios.get(
+            `${APPLICATION_API_END_POINT}/apply/${jobId}`,
+            { withCredentials: true }
+        );
 
-                const updatedSingleJob = {
-                    ...singleJob,
-                    applications: [
-                        ...(singleJob?.applications || []),
-                        { applicant: user?._id },
-                    ],
-                };
+        if (res.data.success) {
+            setIsApplied(true);
 
-                dispatch(setSingleJob(updatedSingleJob));
-                toast.success(res.data.message);
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error(
-                error.response?.data?.message || "Unable to apply for this job."
-            );
+            const updatedSingleJob = {
+                ...singleJob,
+                applications: [
+                    ...(singleJob?.applications || []),
+                    { applicant: user?._id },
+                ],
+            };
+
+            dispatch(setSingleJob(updatedSingleJob));
+            toast.success(res.data.message);
         }
-    };
+    } catch (error) {
+        console.log(error);
+        toast.error(
+            error.response?.data?.message || "Unable to apply for this job."
+        );
+    }
+};
 
     useEffect(() => {
         const fetchSingleJob = async () => {
