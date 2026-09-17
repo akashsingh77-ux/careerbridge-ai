@@ -63,8 +63,8 @@ const Profile = () => {
                                     <Avatar className="relative h-20 w-20 border-2 border-slate-700 sm:h-24 sm:w-24">
 
                                         <AvatarImage
-                                            src="https://www.shutterstock.com/image-vector/circle-line-simple-design-logo-600nw-2174926871.jpg"
-                                            alt="profile"
+                                            src={user?.profile?.profilePhoto}
+                                            alt={user?.fullname || "profile"}
                                         />
 
                                     </Avatar>
