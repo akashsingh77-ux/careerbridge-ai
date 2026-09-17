@@ -80,6 +80,53 @@ Create companies, post jobs, manage job listings, and review applicants from a d
 | 🔎 Candidate Review     | View applicant information and applications |
 
 ---
+## 📸 Application Screenshots
+
+### 🏠 Home — Latest Job Openings
+
+<p align="center">
+  <img src="./careerbridge-screenshots/home.png" alt="CareerBridge AI Home Page" width="100%">
+</p>
+
+---
+
+### 💼 Job Discovery & Smart Filters
+
+<p align="center">
+  <img src="./careerbridge-screenshots/jobs.png" alt="CareerBridge AI Jobs Page" width="100%">
+</p>
+
+---
+
+### 🎯 Job Details & AI Smart Match
+
+<p align="center">
+  <img src="./careerbridge-screenshots/job-details-smart-match.png" alt="Job Details and Smart Match" width="100%">
+</p>
+
+---
+
+### 🧠 AI Interview
+
+<p align="center">
+  <img src="./careerbridge-screenshots/ai-interview.png" alt="CareerBridge AI Interview" width="100%">
+</p>
+
+---
+
+### 📊 Interview History & Performance
+
+<p align="center">
+  <img src="./careerbridge-screenshots/interview-history.png" alt="Interview History" width="100%">
+</p>
+
+---
+
+### 🏢 Recruiter Dashboard
+
+<p align="center">
+  <img src="./careerbridge-screenshots/recruiter-dashboard.png" alt="Recruiter Dashboard" width="100%">
+</p>
 
 # 🤖 AI-Powered Features
 
